@@ -64,12 +64,12 @@ import org.joml.Vector3f;
 import java.util.Map;
 
 public class DmatvEntity extends Entity {
-    public DmatvEntity(EntityType<? extends Entity> entityType, World world) {
+    public DmatvEntity(EntityType<?> entityType, World world) {
         super(entityType, world);
         this.intersectionChecked = true;
     }
 
-    public DmatvEntity(EntityType<? extends Entity> type, World world, double x, double y, double z) {
+    public DmatvEntity(EntityType<?> type, World world, double x, double y, double z) {
         this(type, world);
         this.setPosition(x, y, z);
         this.prevX = x;

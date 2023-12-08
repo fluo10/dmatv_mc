@@ -52,11 +52,11 @@ extends Item {
             } else {
                 return this.defaultBehavior.dispense(pointer, stack);
             }
-            AbstractMinecartEntity abstractMinecartEntity = AbstractMinecartEntity.create(world, d, e + g, f, ((DmatvItem)stack.getItem()).type);
+            DmatvEntity dmatvEntity = new DmatvEntity(world, d, e + g, f);
             if (stack.hasCustomName()) {
-                abstractMinecartEntity.setCustomName(stack.getName());
+                dmatvEntity.setCustomName(stack.getName());
             }
-            world.spawnEntity(abstractMinecartEntity);
+            world.spawnEntity(dmatvEntity);
             stack.decrement(1);
             return stack;
         }
@@ -66,11 +66,9 @@ extends Item {
             pointer.world().syncWorldEvent(WorldEvents.DISPENSER_DISPENSES, pointer.pos(), 0);
         }
     };
-    final AbstractMinecartEntity.Type type;
 
-    public DmatvItem(AbstractMinecartEntity.Type type, Settings settings) {
+    public DmatvItem(Settings settings) {
         super(settings);
-        this.type = type;
         DispenserBlock.registerBehavior(this, DISPENSER_BEHAVIOR);
     }
 
@@ -89,11 +87,11 @@ extends Item {
             if (railShape.isAscending()) {
                 d = 0.5;
             }
-            AbstractMinecartEntity abstractMinecartEntity = AbstractMinecartEntity.create(world, (double)blockPos.getX() + 0.5, (double)blockPos.getY() + 0.0625 + d, (double)blockPos.getZ() + 0.5, this.type);
+            DmatvEntity dmatvEntity = new DmatvEntity(world, (double)blockPos.getX() + 0.5, (double)blockPos.getY() + 0.0625 + d, (double)blockPos.getZ() + 0.5);
             if (itemStack.hasCustomName()) {
-                abstractMinecartEntity.setCustomName(itemStack.getName());
+                dmatvEntity.setCustomName(itemStack.getName());
             }
-            world.spawnEntity(abstractMinecartEntity);
+            world.spawnEntity(dmatvEntity);
             world.emitGameEvent(GameEvent.ENTITY_PLACE, blockPos, GameEvent.Emitter.of(context.getPlayer(), world.getBlockState(blockPos.down())));
         }
         itemStack.decrement(1);
