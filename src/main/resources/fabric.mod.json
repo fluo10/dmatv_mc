@@ -1,8 +1,8 @@
 {
 	"schemaVersion": 1,
-	"id": "rufina_mc",
+	"id": "dmatv",
 	"version": "${version}",
-	"name": "rufina_mc",
+	"name": "dmatv",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
 		"Me!"
@@ -12,22 +12,17 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/rufina_mc/icon.png",
+	"icon": "assets/dmatv/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.fireturtle.rufina_mc.Rufina_mc"
+			"net.fireturtle.dmatv.Dmatv"
 		],
 		"client": [
-			"net.fireturtle.rufina_mc.Rufina_mcClient"
+			"net.fireturtle.dmatv.DmatvClient"
 		]
 	},
 	"mixins": [
-		"rufina_mc.mixins.json",
-		{
-			"config": "rufina_mc.client.mixins.json",
-			"environment": "client"
-		}
 	],
 	"depends": {
 		"fabricloader": ">=0.15.0",
